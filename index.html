@@ -15,7 +15,7 @@
 
     .background-overlay {
       position: fixed;
-      top: 140px; /* فاصله از عنوان */
+      top: 140px;
       right: 0;
       left: 0;
       display: flex;
@@ -26,7 +26,7 @@
 
     .background-overlay img {
       width: 280px;
-      opacity: 0.05; /* خیلی لطیف برای حفظ خوانایی */
+      opacity: 0.05;
     }
 
     .content {
@@ -85,11 +85,12 @@
       margin: 5% auto;
       padding: 20px;
       width: 80%;
+      max-height: 80vh;
+      overflow-y: auto;
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0,0,0,0.3);
       font-family: Vazirmatn, sans-serif;
-      max-height: 90vh;
-      overflow-y: auto;
+      position: relative;
     }
 
     .close-button {
@@ -99,13 +100,19 @@
     }
 
     #backButton {
-      margin-top: 20px;
-      padding: 10px 20px;
+      position: sticky;
+      bottom: 0;
       background-color: #007f00;
       color: white;
+      padding: 10px 20px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      margin-top: 20px;
+      display: block;
+      width: fit-content;
+      margin-right: auto;
+      margin-left: auto;
     }
 
     .formula-box {
