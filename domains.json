@@ -1,0 +1,15 @@
+[
+  { "domainNumber": "01", "domainTitle": "حسابداری مالی", "file": "domain_01.json" },
+  { "domainNumber": "02", "domainTitle": "حسابداری صنعتی (بهای تمام‌شده)", "file": "domain_02.json" },
+  { "domainNumber": "03", "domainTitle": "حسابداری مدیریت و هوش تجاری", "file": "domain_03.json" },
+  { "domainNumber": "04", "domainTitle": "مالیات و الزامات قانونی", "file": "domain_04.json" },
+  { "domainNumber": "05", "domainTitle": "خزانه‌داری و مدیریت نقدینگی", "file": "domain_05.json" },
+  { "domainNumber": "06", "domainTitle": "بودجه‌ریزی و کنترل بودجه", "file": "domain_06.json" },
+  { "domainNumber": "07", "domainTitle": "کنترل داخلی و ریسک مالی", "file": "domain_07.json" },
+  { "domainNumber": "08", "domainTitle": "مدیریت دارایی‌ها و اموال", "file": "domain_08.json" },
+  { "domainNumber": "09", "domainTitle": "مدیریت انبار و موجودی کالا", "file": "domain_09.json" },
+  { "domainNumber": "10", "domainTitle": "سفارشات و خرید", "file": "domain_10.json" },
+  { "domainNumber": "11", "domainTitle": "منابع انسانی (از منظر مالی)", "file": "domain_11.json" },
+  { "domainNumber": "12", "domainTitle": "فروش و بازاریابی (از منظر مالی)", "file": "domain_12.json" },
+  { "domainNumber": "13", "domainTitle": "مدیریت تولید (از منظر مالی)", "file": "domain_13.json" }
+]
