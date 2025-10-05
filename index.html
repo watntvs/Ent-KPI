@@ -15,12 +15,17 @@
     .background-overlay {
       position: fixed;
       top: 0; right: 0; bottom: 0; left: 0;
-      background-image: url('entehkhab-logo.png');
-      background-size: 300px;
-      background-position: center top;
-      background-repeat: no-repeat;
-      opacity: 0.05; /* کمرنگ برای حفظ خوانایی */
+      display: flex;
+      justify-content: center;
+      align-items: start;
       z-index: 0;
+      pointer-events: none;
+    }
+
+    .background-overlay img {
+      margin-top: 40px;
+      width: 300px;
+      opacity: 0.05; /* کمرنگ برای حفظ خوانایی */
     }
 
     .content {
@@ -141,9 +146,11 @@
   </style>
 </head>
 <body>
-  <div class="background-overlay"></div>
-  <div class="content">
+  <div class="background-overlay">
+    <img src="entehkhab-logo.png" alt="انتخاب الکترونیک">
+  </div>
 
+  <div class="content">
     <h1>📘 شاخص‌های معاونت مالی</h1>
     <div id="dashboard"></div>
 
@@ -154,7 +161,6 @@
         <button id="backButton" onclick="closeModal()">🔙 بازگشت</button>
       </div>
     </div>
-
   </div>
 
   <script>
