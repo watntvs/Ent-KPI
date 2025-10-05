@@ -4,7 +4,146 @@
   <meta charset="UTF-8">
   <title>📘 داشبورد شاخص‌های معاونت مالی</title>
   <style>
-    /* همان استایل قبلی بدون تغییر */
+    body {
+      font-family: Vazirmatn, sans-serif;
+      background-color: #f9f9f9;
+      direction: rtl;
+      padding: 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .background-overlay {
+      position: fixed;
+      top: 140px;
+      right: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .background-overlay img {
+      width: 280px;
+      opacity: 0.05;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      text-align: center;
+      color: #007f00;
+      margin-bottom: 30px;
+    }
+
+    details {
+      margin-bottom: 10px;
+    }
+
+    summary {
+      font-weight: bold;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 4px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    ul {
+      list-style: none;
+      padding-right: 20px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .subgroup-title {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .domain-icon {
+      font-size: 20px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 20px;
+      width: 80%;
+      max-height: 80vh;
+      overflow-y: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      font-family: Vazirmatn, sans-serif;
+      position: relative;
+    }
+
+    .close-button {
+      float: left;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    #backButton {
+      position: sticky;
+      bottom: 0;
+      background-color: #007f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+      display: block;
+      width: fit-content;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .formula-box {
+      background-color: #f9f9f9;
+      padding: 10px;
+      border-right: 4px solid #007f00;
+      border-radius: 4px;
+    }
+
+    .example-box {
+      background-color: #fff8e1;
+      padding: 12px;
+      border-left: 4px solid #ff9800;
+      border-radius: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      text-align: right;
+      padding: 8px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #e0f0ff;
+    }
   </style>
 </head>
 <body>
@@ -36,52 +175,68 @@
       });
 
     function loadDomains() {
-      // فقط دامنه 01 را بارگذاری می‌کنیم
-      fetch("domain_01.json")
+      fetch("domains.json")
         .then(res => res.json())
-        .then(domain => {
+        .then(domains => {
           const container = document.getElementById("dashboard");
-          const details = document.createElement("details");
-          const summary = document.createElement("summary");
 
-          summary.innerHTML = `<span class="domain-icon">📘</span> دامنه 01 – حسابداری مالی`;
-          details.appendChild(summary);
+          domains.forEach(domain => {
+            const details = document.createElement("details");
+            const summary = document.createElement("summary");
 
-          domain.subgroups.forEach(sub => {
-            const subgroupTitle = document.createElement("div");
-            subgroupTitle.className = "subgroup-title";
-            subgroupTitle.textContent = sub.title;
-            subgroupTitle.style.color = sub.color || "#007f00";
-            details.appendChild(subgroupTitle);
+            const icon = icons[domain.domainTitle] || "📁";
+            summary.innerHTML = `<span class="domain-icon">${icon}</span> ${domain.domainNumber}. ${domain.domainTitle}`;
+            details.appendChild(summary);
 
-            sub.categories.forEach(cat => {
-              const catItem = document.createElement("li");
-              catItem.textContent = cat.title;
-
-              const itemList = document.createElement("ul");
-              cat.items.forEach(item => {
-                const li = document.createElement("li");
-                const a = document.createElement("a");
-                a.href = "#";
-                a.textContent = item.title;
-                a.addEventListener("click", () => showIndicator(item.id));
-                li.appendChild(a);
-                itemList.appendChild(li);
+            summary.addEventListener("click", () => {
+              document.querySelectorAll("#dashboard details").forEach(d => {
+                if (d !== details) d.removeAttribute("open");
               });
 
-              const catWrapper = document.createElement("ul");
-              catWrapper.appendChild(catItem);
-              catWrapper.appendChild(itemList);
-              details.appendChild(catWrapper);
-            });
-          });
+              if (!details.dataset.loaded) {
+                fetch(domain.file)
+                  .then(res => res.json())
+                  .then(data => {
+                    data.subgroups.forEach(sub => {
+                      const subgroupTitle = document.createElement("div");
+                      subgroupTitle.className = "subgroup-title";
+                      subgroupTitle.textContent = sub.title;
+                      subgroupTitle.style.color = sub.color || "#007f00";
+                      details.appendChild(subgroupTitle);
 
-          container.appendChild(details);
+                      sub.categories.forEach(cat => {
+                        const catItem = document.createElement("li");
+                        catItem.textContent = cat.title;
+
+                        const itemList = document.createElement("ul");
+                        cat.items.forEach(item => {
+                          const li = document.createElement("li");
+                          const a = document.createElement("a");
+                          a.href = "#";
+                          a.textContent = item.title;
+                          a.addEventListener("click", () => showIndicator(item.id, domain.folder));
+                          li.appendChild(a);
+                          itemList.appendChild(li);
+                        });
+
+                        const catWrapper = document.createElement("ul");
+                        catWrapper.appendChild(catItem);
+                        catWrapper.appendChild(itemList);
+                        details.appendChild(catWrapper);
+                      });
+                    });
+                    details.dataset.loaded = "true";
+                  });
+              }
+            });
+
+            container.appendChild(details);
+          });
         });
     }
 
-    function showIndicator(indicatorId) {
-      fetch(`domain_01/${indicatorId}.json`)
+    function showIndicator(indicatorId, folder) {
+      fetch(`${folder}/${indicatorId}.json`)
         .then(res => res.json())
         .then(data => {
           const container = document.getElementById("indicatorContent");
@@ -130,3 +285,4 @@
   </script>
 </body>
 </html>
+
