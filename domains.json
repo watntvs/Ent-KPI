@@ -1,15 +1,15 @@
 [
   { "domainNumber": "01", "domainTitle": "حسابداری مالی", "file": "domain_01.json", "folder": "domain_01" },
-  { "domainNumber": "02", "domainTitle": "برنامه‌ریزی مالی و بودجه", "file": "domain_02.json", "folder": "domain_02" },
-  { "domainNumber": "03", "domainTitle": "خزانه‌داری و مدیریت نقدینگی", "file": "domain_03.json", "folder": "domain_03" },
-  { "domainNumber": "04", "domainTitle": "مدیریت هزینه‌ها و کنترل بودجه", "file": "domain_04.json", "folder": "domain_04" },
-  { "domainNumber": "05", "domainTitle": "مدیریت درآمد و فروش", "file": "domain_05.json", "folder": "domain_05" },
-  { "domainNumber": "06", "domainTitle": "مدیریت خرید و تأمین", "file": "domain_06.json", "folder": "domain_06" },
-  { "domainNumber": "07", "domainTitle": "منابع انسانی و حقوق و دستمزد", "file": "domain_07.json", "folder": "domain_07" },
+  { "domainNumber": "02", "domainTitle": "حسابداری صنعتی (بهای تمام‌شده)", "file": "domain_02.json", "folder": "domain_02" },
+  { "domainNumber": "03", "domainTitle": "حسابداری مدیریت و هوش تجاری", "file": "domain_03.json", "folder": "domain_03" },
+  { "domainNumber": "04", "domainTitle": "مالیات و الزامات قانونی", "file": "domain_04.json", "folder": "domain_04" },
+  { "domainNumber": "05", "domainTitle": "خزانه‌داری و مدیریت نقدینگی", "file": "domain_05.json", "folder": "domain_05" },
+  { "domainNumber": "06", "domainTitle": "بودجه‌ریزی و کنترل بودجه", "file": "domain_06.json", "folder": "domain_06" },
+  { "domainNumber": "07", "domainTitle": "کنترل داخلی و ریسک مالی", "file": "domain_07.json", "folder": "domain_07" },
   { "domainNumber": "08", "domainTitle": "مدیریت دارایی‌ها و اموال", "file": "domain_08.json", "folder": "domain_08" },
-  { "domainNumber": "09", "domainTitle": "مدیریت قراردادها و تعهدات", "file": "domain_09.json", "folder": "domain_09" },
-  { "domainNumber": "10", "domainTitle": "مدیریت مالی پروژه‌ها", "file": "domain_10.json", "folder": "domain_10" },
-  { "domainNumber": "11", "domainTitle": "مدیریت مالی شعب و واحدها", "file": "domain_11.json", "folder": "domain_11" },
-  { "domainNumber": "12", "domainTitle": "مدیریت مالی دیجیتال و آنلاین", "file": "domain_12.json", "folder": "domain_12" },
-  { "domainNumber": "13", "domainTitle": "مدیریت گزارش‌دهی و تحلیل مالی", "file": "domain_13.json", "folder": "domain_13" }
+  { "domainNumber": "09", "domainTitle": "مدیریت انبار و موجودی کالا", "file": "domain_09.json", "folder": "domain_09" },
+  { "domainNumber": "10", "domainTitle": "سفارشات و خرید", "file": "domain_10.json", "folder": "domain_10" },
+  { "domainNumber": "11", "domainTitle": "منابع انسانی (از منظر مالی)", "file": "domain_11.json", "folder": "domain_11" },
+  { "domainNumber": "12", "domainTitle": "فروش و بازاریابی (از منظر مالی)", "file": "domain_12.json", "folder": "domain_12" },
+  { "domainNumber": "13", "domainTitle": "مدیریت تولید (از منظر مالی)", "file": "domain_13.json", "folder": "domain_13" }
 ]
