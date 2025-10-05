@@ -6,48 +6,42 @@
   <style>
     body {
       font-family: Vazirmatn, sans-serif;
-      direction: rtl;
-      margin: 0;
-      padding: 0;
       background-color: #f9f9f9;
+      direction: rtl;
+      padding: 20px;
+      position: relative;
+      overflow-x: hidden;
     }
 
     .background-overlay {
       position: fixed;
-      top: 40; right: 0; bottom: 0; left: 0;
+      top: 140px; /* فاصله از عنوان */
+      right: 0;
+      left: 0;
       display: flex;
       justify-content: center;
-      align-items: start;
       z-index: 0;
       pointer-events: none;
     }
 
     .background-overlay img {
-      margin-top: 40px;
-      width: 300px;
-      opacity: 0.06; /* کمرنگ برای حفظ خوانایی */
+      width: 280px;
+      opacity: 0.05; /* خیلی لطیف برای حفظ خوانایی */
     }
 
     .content {
       position: relative;
       z-index: 1;
-      padding: 20px;
     }
 
     h1 {
       text-align: center;
       color: #007f00;
       margin-bottom: 30px;
-      background-color: rgba(255,255,255,0.8);
-      padding: 10px;
-      border-radius: 8px;
     }
 
     details {
       margin-bottom: 10px;
-      background-color: rgba(255,255,255,0.9);
-      padding: 10px;
-      border-radius: 6px;
     }
 
     summary {
